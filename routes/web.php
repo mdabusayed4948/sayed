@@ -75,7 +75,12 @@ Route::post('stripe/webhook', '\Bulkly\Http\Controllers\WebhookController@handle
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/buffer/change/{buffer_id}', 'HomeController@bufferChange')->name('bufferChange');
 Route::resource('subscriptions', 'SubscriptionController');
-Route::get('/settings', 'PagesController@settings')->name('settings');;
+Route::get('/settings', 'PagesController@settings')->name('settings');
+
+Route::get('/history', 'HistoryController@index')->name('history');
+
+Route::get('/search','HistoryController@search')->name('search');
+
 Route::get('/social-accounts', 'PagesController@socialAccounts')->name('social-accounts');
 Route::get('/users/confirmation/', 'PagesController@confirmation');
 Route::get('/users/confirmation/{token}', 'PagesController@confirmationToken')->name('confirmation');
